@@ -29,6 +29,13 @@ export default function LoginPage() {
     }
   }
 
+  async function oauthSignIn() {
+    // Placeholder function for attempting to sign in with OAuth
+    // Simply alerts the user that OAuth is not implemented yet.
+
+    Alert.alert("Sign-in Error", "Sign in with OAuth (Google or Apple) is not currently supported. Please use your email to sign in instead.");
+  }
+
   return (
     <View className="flex-1 bg-gray-900 justify-between px-5 pb-10 pt-20">
       <View className="max-w-md w-full mx-auto space-y-4">
@@ -76,23 +83,25 @@ export default function LoginPage() {
         <View className="space-y-3">
           <TouchableOpacity
             className="flex-row items-center justify-center w-full border border-gray-600 py-4 rounded-lg mb-2"
-            disabled={isLoading}
+            disabled={false}
+            onPress={oauthSignIn}
           >
             <Image
-              source={require("@/assets/images/google-icon.png")}
+              source={require("@/assets/images/google-icon-grayscale.png")}
               className="w-6 h-6"
             />
-            <Text className="text-white ml-2 text-base">
+            <Text className="text-gray-500 ml-2 text-base">
               Continue with Google
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             className="flex-row items-center justify-center w-full border border-gray-600 py-4 rounded-lg mb-2"
-            disabled={isLoading}
+            disabled={false}
+            onPress={oauthSignIn}
           >
-            <AntDesign name="apple1" size={24} color="white" />
-            <Text className="text-white ml-2 text-base">
+            <AntDesign name="apple1" size={24} color="gray" />
+            <Text className="text-gray-500 ml-2 text-base">
               Continue with Apple
             </Text>
           </TouchableOpacity>
